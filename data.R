@@ -1,6 +1,6 @@
 # data.R
-# Name: Stephen Ling
-# Email: jling9@wisc.edu
+# Name: Stephen Ling, Renee Li
+# Email: jling9@wisc.edu, rli366@wisc.edu
 
 # README: this Rscript used on data frame
 #         to split trainning and testing
@@ -30,16 +30,21 @@ index <- c(1,2,3,4,5,8)
 data <- data.temp[,index]
 data$is_attributed <- as.factor(data$is_attributed)
 
+# split train & test
+split <- sample(c(rep(0, 0.2 * nrow(data)), rep(1, 0.8 * nrow(data))))
+train <- data[split == 0, ]
+test <- data[split == 1, ]
 
 # oversampling (Package: imbalance)
-data <- oversample(
-  data,
+train <- oversample(
+  train,
   ratio = 0.8,
   method = "SMOTE",
   filtering = F,
   classAttr = "is_attributed")
 
 # write csv files
-write.name <- "data.csv"
-write.csv(data, write.name, row.names=FALSE)
-
+write.name.train <- "train.csv"
+write.csv(train, write.name.train, row.names=FALSE)
+write.name.test <- "test.csv"
+write.csv(test, write.name.test, row.names=FALSE)
