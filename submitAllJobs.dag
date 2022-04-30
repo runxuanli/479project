@@ -1,0 +1,26 @@
+# (pre 1)  initialize.sh
+#              |
+#              V
+# (job 1)  algorithm.sub
+#            / | \
+#  five parallel runs of alg.sh
+#            \ | /
+#              V
+# (post 1) merge.sh
+#              |
+#              V
+# (job 2)  variable.sub
+#            / | \
+#  five parallel runs of var.sh
+#            \ | /
+#              V
+# (post 2) result.sh
+
+JOB 1 algorithm.sub
+JOB 2 variable.sub
+
+SCRIPT PRE 1 initialize.sh
+SCRIPT POST 1  merge.sh
+SCRIPT POST 2 result.sh
+
+parent 1 child 2
