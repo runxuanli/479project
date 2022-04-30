@@ -1,7 +1,6 @@
 # logistic.R
 # Name: Stephen Ling, Yifan Chen
 # Email: jling9@wisc.edu, chen2336@wisc.edu
-
 # README: this Rscript tests the acccuracy
 #         of Logistic Regression.
 # Library: mlr3verse

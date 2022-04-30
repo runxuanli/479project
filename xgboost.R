@@ -1,7 +1,6 @@
 # xgboost.R
 # Name: Stephen Ling, Yifan Chen
 # Email: jling9@wisc.edu, chen2336@wisc.edu
-
 # README: this Rscript tests XGBoost acccuracy
 # Library: mlr3verse
 # Input: data

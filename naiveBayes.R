@@ -1,7 +1,6 @@
 # naivebayes.R
 # Name: Stephen Ling, Yifan Chen
 # Email: jling9@wisc.edu, chen2336@wisc.edu
-
 # README: this Rscript tests the acccuracy
 #         of Naive Bayes.
 # Library: mlr3verse
