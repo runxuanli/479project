@@ -11,11 +11,19 @@
 # preparation
 rm(list=ls())
 library(mlr3verse)
+library(imbalance)
 
 # take cmd arg
 algorithm <- readLines("alg.txt")
-data.temp <- read.csv("data.csv")
+data.temp <- read.csv("data4.csv")
 data.temp$is_attributed <- as.factor(data.temp$is_attributed)
+
+data.temp <- oversample(
+  data.temp,
+  ratio = 0.8,
+  method = "SMOTE",
+  filtering = F,
+  classAttr = "is_attributed")
 
 var.comb <- function(alg, t) {
   # prepare data
@@ -117,4 +125,3 @@ result <- toString(accuracy)
 file.name <- file("4.txt")
 writeLines(result, file.name)
 close(file.name)
-
