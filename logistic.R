@@ -1,6 +1,7 @@
 # logistic.R
-# Name: Stephen Ling, Yifan Chen,Renee Li
-# Email: jling9@wisc.edu, chen2336@wisc.edu, rli366@wisc.edu
+# Name: Stephen Ling, Yifan Chen
+# Email: jling9@wisc.edu, chen2336@wisc.edu
+
 # README: this Rscript tests the acccuracy
 #         of Logistic Regression.
 # Library: mlr3verse
@@ -10,9 +11,17 @@
 # preparation
 rm(list=ls())
 library(mlr3verse)
+library(imbalance)
 
-data <- read.csv("data.csv")
+data <- read.csv("data1.csv")
 data$is_attributed <- as.factor(data$is_attributed)
+
+data <- oversample(
+  data,
+  ratio = 0.8,
+  method = "SMOTE",
+  filtering = F,
+  classAttr = "is_attributed")
 
 task <- TaskClassif$new("stat479_logi", data , target = "is_attributed")
 
@@ -39,4 +48,3 @@ writeLines(result, file.name)
 close(file.name)
 
 # write.table(cm,"confusion_matrix_logistic.txt",row.names = F,col.names = F)
-
