@@ -24,5 +24,5 @@ cat alg.txt > final.txt
 cat vars.txt | sort -t',' -nrk 2 | head -n 1  >> final.txt
 
 mv submitAllJobs.dag.* dag
-rm train.csv
-rm test.csv
+rm data.csv
+
