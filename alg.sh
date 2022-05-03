@@ -13,5 +13,4 @@ Rscript data.R train_sample
 # run algorithm script
 Rscript $1.R
 
-rm train.csv
-rm test.csv
+rm data*.csv
